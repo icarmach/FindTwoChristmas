@@ -49,19 +49,13 @@
             <flip:FlipControl Name="FlipA1">
                 <flip:FlipControl.FrontSide>
                     <StackPanel>
-                        <TextBlock FontSize="16" Foreground="Blue">Mario Meir-Huber</TextBlock>
-                        <Line X1="0" X2="130" StrokeThickness="2" Stroke="Black" />
-                        <TextBlock FontSize="6">You can do a lot of</TextBlock>
-                        <TextBlock FontSize="6">Things with this Control!</TextBlock>
+                        <Image Grid.Column="2" Margin="0" Source="Prizes/1.png"/>
                     </StackPanel>
                 </flip:FlipControl.FrontSide>
 
                 <flip:FlipControl.BackSide>
                     <StackPanel>
-                        <TextBlock>You want to send me an E-Mail?</TextBlock>
-                        <TextBox Height="80" AcceptsReturn="True"></TextBox>
-                        <Button>Just do it!</Button>
-                        <TextBlock>mario@meirhuber.de</TextBlock>
+                        <Image Grid.Column="2" Margin="0" Source="Prizes/2.png"/>
                     </StackPanel>
                 </flip:FlipControl.BackSide>
 
@@ -70,19 +64,13 @@
             <flip:FlipControl Name="FlipB1" Grid.Column="1" Grid.Row="0">
                 <flip:FlipControl.FrontSide>
                     <StackPanel>
-                        <TextBlock FontSize="16" Foreground="Blue">Mario Meir-Huber</TextBlock>
-                        <Line X1="0" X2="130" StrokeThickness="2" Stroke="Black" />
-                        <TextBlock FontSize="6">You can do a lot of</TextBlock>
-                        <TextBlock FontSize="6">Things with this Control!</TextBlock>
+                        <Image Grid.Column="2" Margin="0" Source="Prizes/3.png"/>
                     </StackPanel>
                 </flip:FlipControl.FrontSide>
 
                 <flip:FlipControl.BackSide>
                     <StackPanel>
-                        <TextBlock>You want to send me an E-Mail?</TextBlock>
-                        <TextBox Height="80" AcceptsReturn="True"></TextBox>
-                        <Button>Just do it!</Button>
-                        <TextBlock>mario@meirhuber.de</TextBlock>
+                        <Image Grid.Column="2" Margin="0" Source="Prizes/4.png"/>
                     </StackPanel>
                 </flip:FlipControl.BackSide>
 
