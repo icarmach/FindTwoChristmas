@@ -1,0 +1,92 @@
+﻿<Window x:Class="FindTwoChristmas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:flip="clr-namespace:FlipControl;assembly=FlipControl"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid ShowGridLines="True">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition/>
+    		<ColumnDefinition Width="10*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition/>
+    		<RowDefinition/>
+    		<RowDefinition Height="7*"/>
+    	</Grid.RowDefinitions>
+    	<Grid x:Name="LettersGrid" Grid.Column="1" Margin="0" Grid.Row="1">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    		</Grid.ColumnDefinitions>
+    	</Grid>
+    	<Grid x:Name="NumbersGrid" Margin="0" Grid.Row="2">
+    		<Grid.RowDefinitions>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    		</Grid.RowDefinitions>
+    	</Grid>
+    	<Grid x:Name="GameGrid" Margin="0" Grid.Row="2" Grid.Column="1">
+    		<Grid.RowDefinitions>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    		</Grid.RowDefinitions>
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    		</Grid.ColumnDefinitions>
+            <flip:FlipControl Name="FlipA1">
+                <flip:FlipControl.FrontSide>
+                    <StackPanel>
+                        <TextBlock FontSize="16" Foreground="Blue">Mario Meir-Huber</TextBlock>
+                        <Line X1="0" X2="130" StrokeThickness="2" Stroke="Black" />
+                        <TextBlock FontSize="6">You can do a lot of</TextBlock>
+                        <TextBlock FontSize="6">Things with this Control!</TextBlock>
+                    </StackPanel>
+                </flip:FlipControl.FrontSide>
+
+                <flip:FlipControl.BackSide>
+                    <StackPanel>
+                        <TextBlock>You want to send me an E-Mail?</TextBlock>
+                        <TextBox Height="80" AcceptsReturn="True"></TextBox>
+                        <Button>Just do it!</Button>
+                        <TextBlock>mario@meirhuber.de</TextBlock>
+                    </StackPanel>
+                </flip:FlipControl.BackSide>
+
+            </flip:FlipControl>
+
+            <flip:FlipControl Name="FlipB1" Grid.Column="1" Grid.Row="0">
+                <flip:FlipControl.FrontSide>
+                    <StackPanel>
+                        <TextBlock FontSize="16" Foreground="Blue">Mario Meir-Huber</TextBlock>
+                        <Line X1="0" X2="130" StrokeThickness="2" Stroke="Black" />
+                        <TextBlock FontSize="6">You can do a lot of</TextBlock>
+                        <TextBlock FontSize="6">Things with this Control!</TextBlock>
+                    </StackPanel>
+                </flip:FlipControl.FrontSide>
+
+                <flip:FlipControl.BackSide>
+                    <StackPanel>
+                        <TextBlock>You want to send me an E-Mail?</TextBlock>
+                        <TextBox Height="80" AcceptsReturn="True"></TextBox>
+                        <Button>Just do it!</Button>
+                        <TextBlock>mario@meirhuber.de</TextBlock>
+                    </StackPanel>
+                </flip:FlipControl.BackSide>
+
+            </flip:FlipControl>
+        </Grid>
+    </Grid>
+</Window>
