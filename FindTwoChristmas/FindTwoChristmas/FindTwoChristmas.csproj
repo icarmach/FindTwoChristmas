@@ -100,7 +100,9 @@
       <Name>FlipControl</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Prizes\closed.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Prizes\1.png" />
     <Resource Include="Prizes\2.png" />
@@ -110,6 +112,11 @@
     <Resource Include="Prizes\6.png" />
     <Resource Include="Prizes\7.png" />
     <Resource Include="Prizes\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prizes\car.png" />
+    <Resource Include="Prizes\ghost.png" />
+    <Resource Include="Prizes\special.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
