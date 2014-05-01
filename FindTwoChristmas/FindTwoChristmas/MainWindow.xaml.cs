@@ -22,6 +22,7 @@ namespace FindTwoChristmas
     {
         private List<string> premiosPendientes;
         private List<string> premiosEntregados;
+        private List<string> premiosTemp;
 
         public MainWindow()
         {
@@ -29,6 +30,7 @@ namespace FindTwoChristmas
 
             premiosPendientes = new List<string>();
             premiosEntregados = new List<string>();
+            premiosTemp = new List<string>();
 
             premiosPendientes.Add("1");
             premiosPendientes.Add("1");
@@ -69,6 +71,183 @@ namespace FindTwoChristmas
             }  
         }
 
+        public void CheckGameStatus()
+        {
+            if (!premiosPendientes[0].Equals("car") && !premiosPendientes[0].Equals("ghost"))
+            {
+                premiosTemp.Add(premiosPendientes[0]);
+            }
+
+            if (CheckPrize())
+            {
+                WinDialog();
+            }
+
+            else
+            {
+                premiosPendientes.RemoveAt(0);
+            }
+        }
+
+        public bool CheckPrize()
+        {
+            if(premiosTemp.Count > 1)
+            {
+                for (int i = 0; i < premiosTemp.Count; i++)
+                {
+                    for (int j = 0; j < premiosTemp.Count; j++)
+                    {
+                        if (premiosTemp[i].Equals(premiosTemp[j]) && i != j)
+                        {
+                            premiosEntregados.Add(premiosTemp[i]);
+                            UpdatePremiosEntregados();
+
+                            return true;
+                        }
+                    }
+                }
+            }
+            
+
+            return false;
+        }
+
+        public void WinDialog()
+        {
+            MessageBox.Show("Felicidades! Ganaste un " + premiosPendientes[0]);
+
+            premiosTemp.Clear();
+            premiosPendientes.Clear();
+
+            //add left prizes to premiosPendientes
+            premiosPendientes.Add("1");
+            premiosPendientes.Add("1");
+            premiosPendientes.Add("2");
+            premiosPendientes.Add("2");
+            premiosPendientes.Add("3");
+            premiosPendientes.Add("3");
+            premiosPendientes.Add("4");
+            premiosPendientes.Add("4");
+            premiosPendientes.Add("5");
+            premiosPendientes.Add("5");
+            premiosPendientes.Add("6");
+            premiosPendientes.Add("6");
+            premiosPendientes.Add("7");
+            premiosPendientes.Add("7");
+            premiosPendientes.Add("8");
+            premiosPendientes.Add("8");
+            premiosPendientes.Add("special");
+            premiosPendientes.Add("ghost");
+            premiosPendientes.Add("ghost");
+            premiosPendientes.Add("car");
+            premiosPendientes.Add("car");
+
+            foreach(string prize in premiosEntregados)
+            {
+                premiosPendientes.Remove(prize);
+                premiosPendientes.Remove(prize);
+            }
+
+            RandomizePrizes();
+
+            //reset pictures
+            A1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            B1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            C1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            D1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            E1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            F1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            A2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            B2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            C2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            D2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            E2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            F2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            A3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            B3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            C3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            D3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            E3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            F3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            A4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            B4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            C4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            D4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            E4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            F4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+        }
+
+        public void UpdatePremiosEntregados()
+        {
+            if(premiosEntregados.Count == 1)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+            }
+
+            else if(premiosEntregados.Count == 2)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+            }
+
+            else if (premiosEntregados.Count == 3)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+                Prize3.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[2] + ".png", UriKind.Relative));
+            }
+
+            else if (premiosEntregados.Count == 4)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+                Prize3.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[2] + ".png", UriKind.Relative));
+                Prize4.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[3] + ".png", UriKind.Relative));
+            }
+
+            else if (premiosEntregados.Count == 5)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+                Prize3.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[2] + ".png", UriKind.Relative));
+                Prize4.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[3] + ".png", UriKind.Relative));
+                Prize5.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[4] + ".png", UriKind.Relative));
+            }
+
+            else if (premiosEntregados.Count == 6)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+                Prize3.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[2] + ".png", UriKind.Relative));
+                Prize4.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[3] + ".png", UriKind.Relative));
+                Prize5.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[4] + ".png", UriKind.Relative));
+                Prize6.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[5] + ".png", UriKind.Relative));
+            }
+
+            else if (premiosEntregados.Count == 7)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+                Prize3.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[2] + ".png", UriKind.Relative));
+                Prize4.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[3] + ".png", UriKind.Relative));
+                Prize5.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[4] + ".png", UriKind.Relative));
+                Prize6.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[5] + ".png", UriKind.Relative));
+                Prize7.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[6] + ".png", UriKind.Relative));
+            }
+
+            else if (premiosEntregados.Count == 8)
+            {
+                Prize1.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[0] + ".png", UriKind.Relative));
+                Prize2.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[1] + ".png", UriKind.Relative));
+                Prize3.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[2] + ".png", UriKind.Relative));
+                Prize4.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[3] + ".png", UriKind.Relative));
+                Prize5.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[4] + ".png", UriKind.Relative));
+                Prize6.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[5] + ".png", UriKind.Relative));
+                Prize7.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[6] + ".png", UriKind.Relative));
+                Prize8.Source = new BitmapImage(new Uri("Prizes/" + premiosEntregados[7] + ".png", UriKind.Relative));
+            }
+        }
+
         private void A1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             if(premiosPendientes.Count > 0 && A1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
@@ -76,7 +255,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 A1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -87,7 +266,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 B1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -98,7 +277,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 C1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -109,7 +288,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 D1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -120,7 +299,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 E1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -131,7 +310,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 F1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -142,7 +321,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 A2.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -153,7 +332,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 B2.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -164,7 +343,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 C2.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -175,7 +354,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 D2.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -186,7 +365,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 E2.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -197,7 +376,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 F2.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -208,7 +387,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 A3.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -219,7 +398,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 B3.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -230,7 +409,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 C3.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -241,7 +420,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 D3.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
 
         }
@@ -253,7 +432,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 E3.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -264,7 +443,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 F3.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -275,7 +454,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 A4.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -286,7 +465,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 B4.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -297,7 +476,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 C4.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -308,7 +487,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 D4.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -319,7 +498,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 E4.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
@@ -330,7 +509,7 @@ namespace FindTwoChristmas
                 RandomizePrizes();
 
                 F4.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                premiosPendientes.RemoveAt(0);
+                CheckGameStatus();
             }
         }
 
