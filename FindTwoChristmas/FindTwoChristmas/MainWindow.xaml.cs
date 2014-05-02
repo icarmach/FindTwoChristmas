@@ -114,7 +114,45 @@ namespace FindTwoChristmas
 
         public void WinDialog()
         {
-            MessageBox.Show("Felicidades! Ganaste un " + premiosPendientes[0]);
+            if (premiosPendientes[0].Equals("1"))
+            {
+                MessageBox.Show("Felicidades! Ganaste un iPad Air de 16 GB");
+            }
+
+            else if (premiosPendientes[0].Equals("2"))
+            {
+                MessageBox.Show("Felicidades! Ganaste un iPhone 5 de 16 GB");
+            }
+
+            else if (premiosPendientes[0].Equals("3"))
+            {
+                MessageBox.Show("Felicidades! Ganaste una TV LG Led de 42 pulgadas");
+            }
+
+            else if (premiosPendientes[0].Equals("4"))
+            {
+                MessageBox.Show("Felicidades! Ganaste un Disco Duro Passport Ultra de 2 TB");
+            }
+
+            else if (premiosPendientes[0].Equals("5"))
+            {
+                MessageBox.Show("Felicidades! Ganaste un Fin de Semana en Puerto Varas");
+            }
+
+            else if (premiosPendientes[0].Equals("6"))
+            {
+                MessageBox.Show("Felicidades! Ganaste $200.000");
+            }
+
+            else if (premiosPendientes[0].Equals("7"))
+            {
+                MessageBox.Show("Felicidades! Ganaste un Set de Cocina Gourmet");
+            }
+
+            else if (premiosPendientes[0].Equals("8"))
+            {
+                MessageBox.Show("Felicidades! Ganaste 70.000 KM Lanpass");
+            }
 
             premiosTemp.Clear();
             premiosPendientes.Clear();
