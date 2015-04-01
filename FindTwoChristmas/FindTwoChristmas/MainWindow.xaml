@@ -13,7 +13,7 @@
 			<RowDefinition Height="10*"/>
 		</Grid.RowDefinitions>
 		<Label Content="Encuentra Dos Iguales" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="28"/>
-		<Label Content="Instrucciones:&#xD;&#xA;&#xD;&#xA;&#x9;x 2 y ganas&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;x 2 y eliges tu premio&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;x 3 y te vas manejando&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;x 3 y pierdes todo" HorizontalAlignment="Left" Margin="10,9.5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Instrucciones:&#xA;&#xA;&#x9;x 2 y ganas&#xA;&#xA;&#xA;&#xA;&#x9;x 3 y eliges tu premio&#xA;&#xA;&#xA;&#xA;&#x9;x 3 y pierdes todo" HorizontalAlignment="Left" Margin="10,9.5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" FontSize="29.333"/>
 		<Grid x:Name="GameGrid" Margin="0" Grid.Column="1" Grid.RowSpan="2">
 			<Grid.RowDefinitions>
 				<RowDefinition/>
@@ -75,9 +75,8 @@
 			<Image x:Name="Prize7" Margin="0" Grid.Row="1" Grid.Column="2"/>
 			<Image x:Name="Prize8" Margin="0" Grid.Row="1" Grid.Column="3"/>
 		</Grid>
-		<Image HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="10,46.1,0,0" Grid.Row="1" Source="Prizes/closed.png"/>
-		<Image HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="10,126.1,0,0" Grid.Row="1" Source="Prizes/special.png"/>
-		<Image HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="10,206.1,0,0" Grid.Row="1" Source="Prizes/car.png"/>
-		<Image HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="10,286.1,0,0" Grid.Row="1" Source="Prizes/ghost.png"/>
+		<Image HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="120" Margin="20,60,0,0" Grid.Row="1" Source="Prizes/closed.png"/>
+		<Image HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="120" Margin="20,215,0,0" Grid.Row="1" Source="Prizes/special.png"/>
+		<Image HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="120" Margin="20,370,0,0" Grid.Row="1" Source="Prizes/ghost.png"/>
 	</Grid>
 </Window>
