@@ -55,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WinDialog.xaml.cs">
+      <DependentUpon>WinDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DevilWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +70,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DevilWindow.xaml.cs">
+      <DependentUpon>DevilWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WinDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -112,6 +126,56 @@
     <Resource Include="Prizes\car.png" />
     <Resource Include="Prizes\ghost.png" />
     <Resource Include="Prizes\special.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="People\abuela.png" />
+    <Resource Include="People\abuela2.png" />
+    <Resource Include="People\andres.png" />
+    <Resource Include="People\antonia.png" />
+    <Resource Include="People\carmach.png" />
+    <Resource Include="People\chano.png" />
+    <Resource Include="People\cristian.png" />
+    <Resource Include="People\diego.png" />
+    <Resource Include="People\fena.png" />
+    <Resource Include="People\genny.png" />
+    <Resource Include="People\ignacia.png" />
+    <Resource Include="People\ignacio.png" />
+    <Resource Include="People\javier.png" />
+    <Resource Include="People\jeanette.png" />
+    <Resource Include="People\jo.png" />
+    <Resource Include="People\jp.png" />
+    <Resource Include="People\juane.png" />
+    <Resource Include="People\karin.png" />
+    <Resource Include="People\kuky.png" />
+    <Resource Include="People\kuky2.png" />
+    <Resource Include="People\laura.png" />
+    <Resource Include="People\lorena.png" />
+    <Resource Include="People\manuela.png" />
+    <Resource Include="People\marisol.png" />
+    <Resource Include="People\martin.png" />
+    <Resource Include="People\mati.png" />
+    <Resource Include="People\natalia.png" />
+    <Resource Include="People\nicolas.png" />
+    <Resource Include="People\pato.png" />
+    <Resource Include="People\paula.png" />
+    <Resource Include="People\pepe.png" />
+    <Resource Include="People\pernil.png" />
+    <Resource Include="People\roberta.png" />
+    <Resource Include="People\titi.png" />
+    <Resource Include="People\tomas.png" />
+    <Resource Include="People\vicentela.png" />
+    <Resource Include="People\wilo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prizes\devil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prizes\diablo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\devilLaugh.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

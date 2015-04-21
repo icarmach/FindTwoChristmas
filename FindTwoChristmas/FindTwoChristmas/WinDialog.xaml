@@ -1,0 +1,11 @@
+﻿<Window x:Class="FindTwoChristmas.WinDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Premio" Height="300" Width="1200" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="prizeTitle" Content="Felicidades!" HorizontalAlignment="Center" Margin="0,-150,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  FontSize="45" FontWeight="Bold"/>
+    	<Label x:Name="prizeLabel" Content="Ganaste un blah" HorizontalAlignment="Center" Margin="0,-20,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  FontSize="55" FontWeight="Bold"/>
+    	<Button Content="Aceptar" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Center" Width="100" Height="30" FontSize="16" Click="Button_Click" FontWeight="Bold"/>
+        
+    </Grid>
+</Window>

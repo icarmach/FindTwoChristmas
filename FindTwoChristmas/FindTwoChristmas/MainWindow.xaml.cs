@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +21,8 @@ namespace FindTwoChristmas
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<string> originalDeck;
+        private List<string> prizeCards;
+        private List<string> peopleCards;
         private List<string> premiosPendientes;
         private List<string> premiosEntregados;
         private List<string> premiosTemp;
@@ -29,76 +31,119 @@ namespace FindTwoChristmas
         {
             InitializeComponent();
 
-            originalDeck = new List<string>();
-            originalDeck.Add("1");
-            originalDeck.Add("1");
-            originalDeck.Add("2");
-            originalDeck.Add("2");
-            originalDeck.Add("3");
-            originalDeck.Add("3");
-            originalDeck.Add("4");
-            originalDeck.Add("4");
-            originalDeck.Add("5");
-            originalDeck.Add("5");
-            originalDeck.Add("6");
-            originalDeck.Add("6");
-            originalDeck.Add("7");
-            originalDeck.Add("7");
-            originalDeck.Add("8");
-            originalDeck.Add("8");
-            originalDeck.Add("special");
-            originalDeck.Add("special");
-            originalDeck.Add("special");
-            originalDeck.Add("1");
-            originalDeck.Add("1");
-            originalDeck.Add("2");
-            originalDeck.Add("2");
-            originalDeck.Add("3");
-            originalDeck.Add("3");
-            originalDeck.Add("4");
-            originalDeck.Add("4");
-            originalDeck.Add("5");
-            originalDeck.Add("5");
-            originalDeck.Add("6");
-            originalDeck.Add("6");
-            originalDeck.Add("7");
-            originalDeck.Add("7");
-            originalDeck.Add("8");
-            originalDeck.Add("8");
-            originalDeck.Add("special");
-            originalDeck.Add("special");
-            originalDeck.Add("special");
-            originalDeck.Add("1");
-            originalDeck.Add("1");
-            originalDeck.Add("2");
-            originalDeck.Add("2");
-            originalDeck.Add("3");
-            originalDeck.Add("3");
-            originalDeck.Add("4");
-            originalDeck.Add("4");
-            originalDeck.Add("5");
-            originalDeck.Add("5");
-            originalDeck.Add("6");
-            originalDeck.Add("6");
-            originalDeck.Add("7");
-            originalDeck.Add("7");
-            originalDeck.Add("8");
-            originalDeck.Add("8");
-            originalDeck.Add("special");
-            originalDeck.Add("special");
-            originalDeck.Add("special");
-            originalDeck.Add("ghost");
-            originalDeck.Add("ghost");
-            originalDeck.Add("ghost");
-            originalDeck.Add("ghost");
-            originalDeck.Add("ghost");
-            originalDeck.Add("ghost");
+            prizeCards = new List<string>();
+            prizeCards.Add("1");
+            prizeCards.Add("1");
+            prizeCards.Add("1");
+            prizeCards.Add("2");
+            prizeCards.Add("2");
+            prizeCards.Add("2");
+            prizeCards.Add("3");
+            prizeCards.Add("3");
+            prizeCards.Add("3");
+            prizeCards.Add("4");
+            prizeCards.Add("4");
+            prizeCards.Add("4");
+            prizeCards.Add("5");
+            prizeCards.Add("5");
+            prizeCards.Add("5");
+            prizeCards.Add("6");
+            prizeCards.Add("6");
+            prizeCards.Add("6");
+            prizeCards.Add("7");
+            prizeCards.Add("7");
+            prizeCards.Add("7");
+            prizeCards.Add("8");
+            prizeCards.Add("8");
+            prizeCards.Add("8");
+            prizeCards.Add("1");
+            prizeCards.Add("1");
+            prizeCards.Add("1");
+            prizeCards.Add("2");
+            prizeCards.Add("2");
+            prizeCards.Add("2");
+            prizeCards.Add("3");
+            prizeCards.Add("3");
+            prizeCards.Add("3");
+            prizeCards.Add("4");
+            prizeCards.Add("4");
+            prizeCards.Add("4");
+            prizeCards.Add("5");
+            prizeCards.Add("5");
+            prizeCards.Add("5");
+            prizeCards.Add("6");
+            prizeCards.Add("6");
+            prizeCards.Add("6");
+            prizeCards.Add("7");
+            prizeCards.Add("7");
+            prizeCards.Add("7");
+            prizeCards.Add("8");
+            prizeCards.Add("8");
+            prizeCards.Add("8");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("special");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+            prizeCards.Add("devil");
+
+            peopleCards = new List<string>();
+            peopleCards.Add("abuela");
+            peopleCards.Add("abuela2");
+            peopleCards.Add("andres");
+            peopleCards.Add("antonia");
+            peopleCards.Add("carmach");
+            peopleCards.Add("chano");
+            peopleCards.Add("cristian");
+            peopleCards.Add("diego");
+            peopleCards.Add("fena");
+            peopleCards.Add("genny");
+            peopleCards.Add("ignacia");
+            peopleCards.Add("ignacio");
+            peopleCards.Add("javier");
+            peopleCards.Add("jeanette");
+            peopleCards.Add("jo");
+            peopleCards.Add("jp");
+            peopleCards.Add("juane");
+            peopleCards.Add("karin");
+            peopleCards.Add("kuky");
+            peopleCards.Add("kuky2");
+            peopleCards.Add("laura");
+            peopleCards.Add("lorena");
+            peopleCards.Add("manuela");
+            peopleCards.Add("marisol");
+            peopleCards.Add("martin");
+            peopleCards.Add("mati");
+            peopleCards.Add("natalia");
+            peopleCards.Add("nicolas");
+            peopleCards.Add("paula");
+            peopleCards.Add("pepe");
+            peopleCards.Add("pernil");
+            peopleCards.Add("roberta");
+            peopleCards.Add("titi");
+            peopleCards.Add("tomas");
+            peopleCards.Add("vicentela");
+            peopleCards.Add("wilo");
 
             premiosPendientes = new List<string>();
             premiosEntregados = new List<string>();
             premiosTemp = new List<string>();
 
-            RandomizePrizes();
             RestartGame();
         }
 
@@ -114,6 +159,20 @@ namespace FindTwoChristmas
                 premiosPendientes[k] = premiosPendientes[n];
                 premiosPendientes[n] = value;
             }  
+        }
+
+        public void RandomizePeople()
+        {
+            Random rng = new Random();
+            int n = peopleCards.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                string value = peopleCards[k];
+                peopleCards[k] = peopleCards[n];
+                peopleCards[n] = value;
+            }
         }
 
         public void CheckGameStatus()
@@ -143,31 +202,33 @@ namespace FindTwoChristmas
                 //Each time someone gets a special prize, 3 cards of them are taken out of the game, so it is harder to get one
                 if (premiosTemp.Last().Equals("special") && timesFound == 3)
                 {
-                    MessageBox.Show("TATA WILY");
+                    WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Premio Sorpresa.");
+                    wd.ShowDialog();
 
-                    originalDeck.Remove("special");
-                    originalDeck.Remove("special");
-                    originalDeck.Remove("special");
+                    prizeCards.Remove("special");
+                    prizeCards.Remove("special");
+                    prizeCards.Remove("special");
 
                     RestartGame();
                 }
                 
-                //If someone gets a ghost card, every card of this type is taken out of the game
-                else if (premiosTemp.Last().Equals("ghost") && timesFound == 3)
+                //If someone gets a devil card, every card of this type is taken out of the game
+                else if (premiosTemp.Last().Equals("devil") && timesFound == 3)
                 {
-                    MessageBox.Show("Chacal");
+                    DevilWindow devilWindow = new DevilWindow();
+                    devilWindow.ShowDialog();
 
-                    originalDeck.Remove("ghost");
-                    originalDeck.Remove("ghost");
-                    originalDeck.Remove("ghost");
-                    originalDeck.Remove("ghost");
-                    originalDeck.Remove("ghost");
-                    originalDeck.Remove("ghost");
+                    WinDialog wd = new WinDialog("Uh! Mala suerte.", "Pierdes todo...");
+                    wd.ShowDialog();
+
+                    prizeCards.Remove("devil");
+                    prizeCards.Remove("devil");
+                    prizeCards.Remove("devil");
 
                     RestartGame();
                 }
 
-                else if (timesFound == 2 && !premiosTemp.Last().Equals("special") && !premiosTemp.Last().Equals("ghost"))
+                else if (timesFound == 3 && !premiosTemp.Last().Equals("special") && !premiosTemp.Last().Equals("devil"))
                 {
                     premiosEntregados.Add(premiosTemp.Last());
                     UpdatePremiosEntregados();
@@ -183,42 +244,50 @@ namespace FindTwoChristmas
         {
             if (premiosEntregados.Last().Equals("1"))
             {
-                MessageBox.Show("Felicidades! Ganaste un iPad Air de 16 GB");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un iPad Air de 16 GB.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("2"))
             {
-                MessageBox.Show("Felicidades! Ganaste un iPhone 5 de 16 GB");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un iPhone 5 de 16 GB.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("3"))
             {
-                MessageBox.Show("Felicidades! Ganaste una TV LG Led de 42 pulgadas");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste una TV LG Led de 42 pulgadas.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("4"))
             {
-                MessageBox.Show("Felicidades! Ganaste un Disco Duro Passport Ultra de 2 TB");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Disco Duro de 2 TB.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("5"))
             {
-                MessageBox.Show("Felicidades! Ganaste un Fin de Semana en Puerto Varas");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Fin de Semana en Puerto Varas.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("6"))
             {
-                MessageBox.Show("Felicidades! Ganaste $200.000");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste $200.000.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("7"))
             {
-                MessageBox.Show("Felicidades! Ganaste un Set de Cocina Gourmet");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Set de Cocina Gourmet.");
+                wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("8"))
             {
-                MessageBox.Show("Felicidades! Ganaste 70.000 KM Lanpass");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste 70.000 KM LanPass.");
+                wd.ShowDialog();
             }
 
             RestartGame();
@@ -295,17 +364,6 @@ namespace FindTwoChristmas
             }
         }
 
-        private void A1_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if(premiosPendientes.Count > 0 && A1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
-            {
-                RandomizePrizes();
-
-                A1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
-                CheckGameStatus();
-            }
-        }
-
         public void RestartGame()
         {
             premiosTemp.Clear();
@@ -314,51 +372,65 @@ namespace FindTwoChristmas
             //delivered prizes are deleted
             foreach (string prize in premiosEntregados)
             {
-                for (int i = 0; i < originalDeck.Count; i++)
+                for (int i = 0; i < prizeCards.Count; i++)
                 {
-                    originalDeck.Remove(prize);
+                    prizeCards.Remove(prize);
                 }
             }
 
             //add every prize to premiosPendientes
-            //probabilities are the same for every prize and 2/3 a normal probability for the ghost
-            for (int i = 0; i < originalDeck.Count; i++)
+            //probabilities are the same for every prize and 2/3 a normal probability for the devil
+            for (int i = 0; i < prizeCards.Count; i++)
             {
-                premiosPendientes.Add(originalDeck[i]);
+                premiosPendientes.Add(prizeCards[i]);
             }
 
+            RandomizePeople();
+            RandomizePeople();
+            RandomizePrizes();
             RandomizePrizes();
 
             //reset pictures
-            A1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            B1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            C1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            D1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            E1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            F1.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            A2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            B2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            C2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            D2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            E2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            F2.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            A3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            B3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            C3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            D3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            E3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            F3.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            A4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            B4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            C4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            D4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            E4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
-            F4.Source = new BitmapImage(new Uri("Prizes/closed.png", UriKind.Relative));
+            A1.Source = new BitmapImage(new Uri("People/" + peopleCards[0] + ".png", UriKind.Relative));
+            B1.Source = new BitmapImage(new Uri("People/" + peopleCards[1] + ".png", UriKind.Relative));
+            C1.Source = new BitmapImage(new Uri("People/" + peopleCards[2] + ".png", UriKind.Relative));
+            D1.Source = new BitmapImage(new Uri("People/" + peopleCards[3] + ".png", UriKind.Relative));
+            E1.Source = new BitmapImage(new Uri("People/" + peopleCards[4] + ".png", UriKind.Relative));
+            F1.Source = new BitmapImage(new Uri("People/" + peopleCards[5] + ".png", UriKind.Relative));
+            A2.Source = new BitmapImage(new Uri("People/" + peopleCards[6] + ".png", UriKind.Relative));
+            B2.Source = new BitmapImage(new Uri("People/" + peopleCards[7] + ".png", UriKind.Relative));
+            C2.Source = new BitmapImage(new Uri("People/" + peopleCards[8] + ".png", UriKind.Relative));
+            D2.Source = new BitmapImage(new Uri("People/" + peopleCards[9] + ".png", UriKind.Relative));
+            E2.Source = new BitmapImage(new Uri("People/" + peopleCards[10] + ".png", UriKind.Relative));
+            F2.Source = new BitmapImage(new Uri("People/" + peopleCards[11] + ".png", UriKind.Relative));
+            A3.Source = new BitmapImage(new Uri("People/" + peopleCards[12] + ".png", UriKind.Relative));
+            B3.Source = new BitmapImage(new Uri("People/" + peopleCards[13] + ".png", UriKind.Relative));
+            C3.Source = new BitmapImage(new Uri("People/" + peopleCards[14] + ".png", UriKind.Relative));
+            D3.Source = new BitmapImage(new Uri("People/" + peopleCards[15] + ".png", UriKind.Relative));
+            E3.Source = new BitmapImage(new Uri("People/" + peopleCards[16] + ".png", UriKind.Relative));
+            F3.Source = new BitmapImage(new Uri("People/" + peopleCards[17] + ".png", UriKind.Relative));
+            A4.Source = new BitmapImage(new Uri("People/" + peopleCards[18] + ".png", UriKind.Relative));
+            B4.Source = new BitmapImage(new Uri("People/" + peopleCards[19] + ".png", UriKind.Relative));
+            C4.Source = new BitmapImage(new Uri("People/" + peopleCards[20] + ".png", UriKind.Relative));
+            D4.Source = new BitmapImage(new Uri("People/" + peopleCards[21] + ".png", UriKind.Relative));
+            E4.Source = new BitmapImage(new Uri("People/" + peopleCards[22] + ".png", UriKind.Relative));
+            F4.Source = new BitmapImage(new Uri("People/" + peopleCards[23] + ".png", UriKind.Relative));
+        }
+
+        private void A1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (premiosPendientes.Count > 0 && A1.Source.ToString().Contains("People"))
+            {
+                RandomizePrizes();
+
+                A1.Source = new BitmapImage(new Uri("Prizes/" + premiosPendientes[0] + ".png", UriKind.Relative));
+                CheckGameStatus();
+            }
         }
 
         private void B1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && B1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && B1.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -369,7 +441,7 @@ namespace FindTwoChristmas
 
         private void C1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && C1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && C1.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -380,7 +452,7 @@ namespace FindTwoChristmas
 
         private void D1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && D1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && D1.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -391,7 +463,7 @@ namespace FindTwoChristmas
 
         private void E1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && E1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && E1.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -402,7 +474,7 @@ namespace FindTwoChristmas
 
         private void F1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && F1.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && F1.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -413,7 +485,7 @@ namespace FindTwoChristmas
 
         private void A2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && A2.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && A2.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -424,7 +496,7 @@ namespace FindTwoChristmas
 
         private void B2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && B2.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && B2.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -435,7 +507,7 @@ namespace FindTwoChristmas
 
         private void C2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && C2.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && C2.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -446,7 +518,7 @@ namespace FindTwoChristmas
 
         private void D2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && D2.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && D2.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -457,7 +529,7 @@ namespace FindTwoChristmas
 
         private void E2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && E2.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && E2.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -468,7 +540,7 @@ namespace FindTwoChristmas
 
         private void F2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && F2.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && F2.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -479,7 +551,7 @@ namespace FindTwoChristmas
 
         private void A3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && A3.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && A3.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -490,7 +562,7 @@ namespace FindTwoChristmas
 
         private void B3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && B3.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && B3.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -501,7 +573,7 @@ namespace FindTwoChristmas
 
         private void C3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && C3.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && C3.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -512,7 +584,7 @@ namespace FindTwoChristmas
 
         private void D3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && D3.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && D3.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -524,7 +596,7 @@ namespace FindTwoChristmas
 
         private void E3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && E3.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && E3.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -535,7 +607,7 @@ namespace FindTwoChristmas
 
         private void F3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && F3.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && F3.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -546,7 +618,7 @@ namespace FindTwoChristmas
 
         private void A4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && A4.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && A4.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -557,7 +629,7 @@ namespace FindTwoChristmas
 
         private void B4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && B4.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && B4.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -568,7 +640,7 @@ namespace FindTwoChristmas
 
         private void C4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && C4.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && C4.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -579,7 +651,7 @@ namespace FindTwoChristmas
 
         private void D4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && D4.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && D4.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -590,7 +662,7 @@ namespace FindTwoChristmas
 
         private void E4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && E4.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && E4.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
@@ -601,7 +673,7 @@ namespace FindTwoChristmas
 
         private void F4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (premiosPendientes.Count > 0 && F4.Source.ToString().Equals("pack://application:,,,/FindTwoChristmas;component/Prizes/closed.png"))
+            if (premiosPendientes.Count > 0 && F4.Source.ToString().Contains("People"))
             {
                 RandomizePrizes();
 
