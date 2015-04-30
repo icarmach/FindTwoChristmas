@@ -47,15 +47,6 @@ namespace FindTwoChristmas
             prizeCards.Add("5");
             prizeCards.Add("5");
             prizeCards.Add("5");
-            prizeCards.Add("6");
-            prizeCards.Add("6");
-            prizeCards.Add("6");
-            prizeCards.Add("7");
-            prizeCards.Add("7");
-            prizeCards.Add("7");
-            prizeCards.Add("8");
-            prizeCards.Add("8");
-            prizeCards.Add("8");
             prizeCards.Add("1");
             prizeCards.Add("1");
             prizeCards.Add("1");
@@ -71,15 +62,6 @@ namespace FindTwoChristmas
             prizeCards.Add("5");
             prizeCards.Add("5");
             prizeCards.Add("5");
-            prizeCards.Add("6");
-            prizeCards.Add("6");
-            prizeCards.Add("6");
-            prizeCards.Add("7");
-            prizeCards.Add("7");
-            prizeCards.Add("7");
-            prizeCards.Add("8");
-            prizeCards.Add("8");
-            prizeCards.Add("8");
             prizeCards.Add("special");
             prizeCards.Add("special");
             prizeCards.Add("special");
@@ -250,37 +232,37 @@ namespace FindTwoChristmas
 
             else if (premiosEntregados.Last().Equals("2"))
             {
-                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un iPhone 5 de 16 GB.");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste unos Audífonos Sony.");
                 wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("3"))
             {
-                WinDialog wd = new WinDialog("Felicidades!", "Ganaste una TV LG Led de 42 pulgadas.");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste unos Chocolates.");
                 wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("4"))
             {
-                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Disco Duro de 2 TB.");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Disco Duro de 1 TB.");
                 wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("5"))
             {
-                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Fin de Semana en Puerto Varas.");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un  Set de Vinos y Licores.");
                 wd.ShowDialog();
             }
-
+            /*
             else if (premiosEntregados.Last().Equals("6"))
             {
-                WinDialog wd = new WinDialog("Felicidades!", "Ganaste $200.000.");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste 500 Dólares.");
                 wd.ShowDialog();
             }
 
             else if (premiosEntregados.Last().Equals("7"))
             {
-                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Set de Cocina Gourmet.");
+                WinDialog wd = new WinDialog("Felicidades!", "Ganaste un Set de Vinos y Licores.");
                 wd.ShowDialog();
             }
 
@@ -289,7 +271,7 @@ namespace FindTwoChristmas
                 WinDialog wd = new WinDialog("Felicidades!", "Ganaste 70.000 KM LanPass.");
                 wd.ShowDialog();
             }
-
+            */
             RestartGame();
         }
 

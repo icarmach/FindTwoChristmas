@@ -110,17 +110,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Prizes\closed.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Prizes\1.png" />
     <Resource Include="Prizes\2.png" />
     <Resource Include="Prizes\3.png" />
     <Resource Include="Prizes\4.png" />
     <Resource Include="Prizes\5.png" />
-    <Resource Include="Prizes\6.png" />
-    <Resource Include="Prizes\7.png" />
-    <Resource Include="Prizes\8.png" />
+    <Resource Include="Prizes\closed.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Prizes\car.png" />
